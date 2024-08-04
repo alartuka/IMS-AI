@@ -10,7 +10,6 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { signOut, useSession } from 'next-auth/react'
 
 const style = {
   position: 'absolute',
