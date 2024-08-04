@@ -2,7 +2,7 @@
 
 import { Button, Stack } from '@mui/material';
 import React, { useEffect, useState, useRef } from 'react';
-import { storage } from '@/firebase';
+import { storage } from '../firebase';
 // import { uploadImages } from '@/firebase';
 // import { classifyImages } from '../utils/vertexAI';
 import { firestore, setDoc, doc } from 'firebase/firestore';

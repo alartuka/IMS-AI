@@ -1,6 +1,6 @@
 'use client'
 
-import { firestore } from '@/firebase'
+import { firestore } from '../firebase'
 // import { fetchClassifiedData } from '@/firebase';
 import { Alert, AlertTitle, Box, Button, IconButton, InputAdornment, Modal, Stack, TextField, Typography } from '@mui/material';
 import { collection, doc, query, getDocs, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
