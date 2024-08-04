@@ -1,9 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth";
-import SessionProvider from "./SessionProvider";
-import Login from "./Login";
-import Home from "./page";
 import { authOptions } from "./api/auth/[...nextauth]";
  
 const inter = Inter({ subsets: ["latin"] });
@@ -19,14 +16,6 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         {children}
-        {/* <SessionProvider session={session}> */}
-          {/* if session not available show login otherwise home */}
-          {/* {!session ? ( */}
-            {/* <Login /> */}
-          {/* ): ( */}
-            {/* <Home /> */}
-          {/* )} */}
-        {/* </SessionProvider> */}
       </body>
     </html>
   );
