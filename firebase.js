@@ -2,8 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { ref, uploadString, getDownloadURL } from 'firebase/storage';
-import { doc, setDoc, collection, getDocs } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,24 +31,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 const storage = getStorage(app);
+const auth = getAuth(app);
 
-// Upload images to Firebase Storage
-// const uploadImages = async (images) => {
-//   const uploadPromises = images.map(async (image, index) => {
-//     const storageRef = ref(storage, `images/${Date.now()}_${index}.jpg`);
-//     const snapshot = await uploadString(storageRef, image, 'data_url');
-//     const downloadURL = await getDownloadURL(snapshot.ref);
-//     return downloadURL;
-//   });
-
-//   return Promise.all(uploadPromises);
-// };
-
-// Fetch classified data from Firestore
-// const fetchClassifiedData = async () => {
-//   const snapshot = await getDocs(collection(firestore, 'image-classifications'));
-//   return snapshot.docs.map((doc) => doc.data());
-// };
-
-export { firestore, app, storage };
-// export { firestore, app, storage, uploadImages, fetchClassifiedData };
+export { firestore, app, storage, auth };
