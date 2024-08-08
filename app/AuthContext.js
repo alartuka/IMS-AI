@@ -3,6 +3,9 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../firebase';
+import Landing from './page';
+import Home from './dashboard/page';
+import Navbar from './Navbar';
 
 const AuthContext = createContext();
 

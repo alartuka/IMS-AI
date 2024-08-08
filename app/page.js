@@ -20,7 +20,7 @@ export default function Landing() {
   return (
     <Box width="100vw" height="100vh" gap={2} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
       
-      <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} width="80vw" bgcolor={'#ADD8E6'} borderRadius= {'60px'} p= {4} mb={'15px'}>
+      <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} width="80vw" bgcolor={'#79c1f1'} borderRadius= {'60px'} p= {4} mb={'15px'}>
         <Typography variant="h1" component="h1" textAlign={'center'}>IMS-AI</Typography>
       </Box>
 

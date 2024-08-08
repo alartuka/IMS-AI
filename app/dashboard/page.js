@@ -8,6 +8,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useRouter } from 'next/navigation';
 import InventList from './InventList';
 import AlertMsg from './AlertMsg';
+import { AuthContextProvider } from '../AuthContext';
+// import { userAuth } from '../AuthContext';
+
 
 const style = {
   position: 'absolute',
@@ -33,6 +36,11 @@ export default function Home() {
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
     const { push } = useRouter();
+    // const { user } = userAuth();
+
+    // useEffect(() => {
+    //     {!user ? push('/') : ""}
+    // }, [])
 
     const [loading, setLoading] = useState(true);
 
@@ -148,6 +156,7 @@ export default function Home() {
 
 
     return (
+        <AuthContextProvider>
         <Box
         width="100vw"
         height="100vh"
@@ -160,8 +169,8 @@ export default function Home() {
         mt={'20px'}
         >
             <Stack direction={'row'} spacing={1}>
-                <Box width="800px" height="100px" bgcolor={'#79c1f1'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-                    <Typography variant={'h2'} color={'#000'} textAlign={'center'}>Inventory Items</Typography>
+                <Box width="800px" height="100px" bgcolor={'#79c1f1'} display={'flex'} justifyContent={'center'} alignItems={'center'} borderRadius={'50px'}>
+                    <Typography variant={'h3'} color={'#fdefe2'} textAlign={'center'}>Inventory Items</Typography>
                 </Box>
 
                 <Box sx={{ position: "sticky" }}>
@@ -284,15 +293,18 @@ export default function Home() {
             </Modal>
 
             {/* ====== INVENTORY LIST ====== */}
-            <Box sx={{ flexGrow: 1, p: 2, gap: 2, alignItems: 'center'}}>
-                <Grid container spacing={2} columns={{ xs: 2, sm: 4, md: 6 }}>
+            {/* <Box sx={{ flexGrow: 1, p: 2, gap: 2, alignItems: 'center'}}>
+                <Grid container spacing={2} columns={{ xs: 2, sm: 4, md: 6 }}> */}
+                <Stack width="800px" height="800px" spacing={2} overflow={'auto'}>
                     {filteredInventory.map(({id, name, quantity}) => (
-                        <Grid xs={6} sm={6} md={6} key={id} sx={{ p: 1 }}>
+                        // <Grid xs={6} sm={6} md={6} key={id} sx={{ p: 1 }}>
                             <InventList name={name} quantity={quantity} addItem={addItem} removeItem={removeItem} />
-                        </Grid>
+                        // {/* </Grid> */}
                     ))}
-                </Grid>
-            </Box>
+                </Stack>
+                {/* </Grid>
+            </Box> */}
         </Box>
+        </AuthContextProvider>
     );
 }
