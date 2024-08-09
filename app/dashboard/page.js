@@ -156,7 +156,7 @@ export default function Home() {
 
 
     return (
-        <AuthContextProvider>
+
         <Box
         width="100vw"
         height="100vh"
@@ -293,18 +293,12 @@ export default function Home() {
             </Modal>
 
             {/* ====== INVENTORY LIST ====== */}
-            {/* <Box sx={{ flexGrow: 1, p: 2, gap: 2, alignItems: 'center'}}>
-                <Grid container spacing={2} columns={{ xs: 2, sm: 4, md: 6 }}> */}
                 <Stack width="800px" height="800px" spacing={2} overflow={'auto'}>
-                    {filteredInventory.map(({id, name, quantity}) => (
-                        // <Grid xs={6} sm={6} md={6} key={id} sx={{ p: 1 }}>
+                    {filteredInventory.map(({ name, quantity }) => (
                             <InventList name={name} quantity={quantity} addItem={addItem} removeItem={removeItem} />
-                        // {/* </Grid> */}
                     ))}
                 </Stack>
-                {/* </Grid>
-            </Box> */}
         </Box>
-        </AuthContextProvider>
+
     );
 }

@@ -1,7 +1,7 @@
 import OpenAI from 'openai';
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-// dotenv.config();
+dotenv.config();
 
 const openai = new OpenAI({
   baseURL: process.env.NEXT_PUBLIC_OPENROUTER_API_URL,

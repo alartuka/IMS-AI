@@ -76,7 +76,7 @@ const LoginPage = () => {
       </Button>
 
       <Button onClick={handleSignup} variant="contained" color="secondary" style={{ marginTop: '20px' }}>
-        Don't have an account?
+        Don&apos;t have an account?
       </Button>
     </div>
   );
