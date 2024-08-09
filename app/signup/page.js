@@ -41,7 +41,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#fdefe2' }}>
       <Typography variant="h4" component="h1" gutterBottom>
         Sign Up
       </Typography>
@@ -77,11 +77,11 @@ const SignupPage = () => {
       </form>
 
        {/* Google Sign in */}
-       <Button onClick={handleGoogleLogin} variant="contained" color="secondary" style={{ marginTop: '20px' }}>
+       <Button onClick={handleGoogleLogin} variant="contained" color="primary" style={{ marginTop: '20px' }}>
         Sign Up with Google
       </Button>
 
-      <Button onClick={handleLogin} variant="contained" color="secondary" style={{ marginTop: '20px' }}>
+      <Button onClick={handleLogin} variant="outlined" color="primary" style={{ marginTop: '20px' }}>
         Already have an account?
       </Button>
     </div>

@@ -3,10 +3,10 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Box, IconButton, Stack, Typography } from '@mui/material';
 
-export default function InventList({name, quantity, addItem, removeItem }) {
+export default function InventList({id, name, quantity, addItem, removeItem }) {
     return (
         <Box  
-            key={name}
+            key={id}
             width={"100%"}
             minHeight={'100px'}
             display={'flex'}

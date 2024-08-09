@@ -3,14 +3,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../firebase';
-import Landing from './page';
-import Home from './dashboard/page';
-import Navbar from './Navbar';
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const logOut = () => {
     signOut(auth)
@@ -18,14 +16,15 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
+      setUser(currentUser);
+      setLoading(false);
     })
     return () => unsubscribe()
-  }, [user]);
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ user, logOut }}>
-      {children}
+    <AuthContext.Provider value={{ user, loading, logOut }}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 };
@@ -33,3 +32,4 @@ export const AuthContextProvider = ({ children }) => {
 export const userAuth = () => {
   return useContext(AuthContext)
 };
+

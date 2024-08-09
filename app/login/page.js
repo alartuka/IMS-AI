@@ -42,7 +42,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#fdefe2' }}>
       <Typography variant="h4" component="h1" gutterBottom>
         Login
       </Typography>
@@ -71,11 +71,11 @@ const LoginPage = () => {
       </form>
 
       {/* Google Sign in */}
-      <Button onClick={handleGoogleLogin} variant="contained" color="secondary" style={{ marginTop: '20px' }}>
+      <Button onClick={handleGoogleLogin} variant="contained" color="primary" style={{ marginTop: '20px' }}>
         Login with Google
       </Button>
 
-      <Button onClick={handleSignup} variant="contained" color="secondary" style={{ marginTop: '20px' }}>
+      <Button onClick={handleSignup} variant="outlined" color="primary" style={{ marginTop: '20px' }}>
         Don&apos;t have an account?
       </Button>
     </div>

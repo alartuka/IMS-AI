@@ -16,11 +16,13 @@ export default async function handler(req, res) {
       const completion = await openai.chat.completions.create({
         model:"meta-llama/llama-3.1-8b-instruct:free",
         messages: [
-          { role: 'user', content: `You are a skilled chef and culinary expert with extensive knowledge of various cuisines and cooking techniques. You have a flair for creating innovative recipes that cater to diverse dietary preferences and restrictions. Your expertise lies in utilizing available ingredients to craft delicious meals that are easy to prepare and appealing to a wide range of tastes. Your task is to generate a list of recipes based on a specific inventory of ingredients. Here are the details of the inventory list items: ${ingredients}. Please ensure that the recipes are not only practical but also varied in terms of types of dishes, cooking methods, any dietary restrictions or preferences, such as vegetarian, gluten-free, halal, or low-carb options, as well as any specific cuisine styles or flavor profiles.` },
+          { role: 'user', content: `You are a skilled chef and culinary expert with extensive knowledge of various cuisines and cooking techniques. You have a flair for creating innovative recipes that cater to diverse dietary preferences and restrictions. Your expertise lies in utilizing available ingredients to craft delicious meals that are easy to prepare and appealing to a wide range of tastes. Your task is to generate a list of 5 unique recipes based on a specific inventory of ingredients. Avoid commenting, only have recipes with ingredients and thier quantities, as well as the methods or insturctions. Here are the details of the inventory list items: ${ingredients}. Please ensure that the recipes are not only practical but also varied in terms of types of dishes, cooking methods, any dietary restrictions or preferences, such as vegetarian, gluten-free, halal, or low-carb options, as well as any specific cuisine styles or flavor profiles.` },
         ],
         max_tokens:1000,
       });
       console.log('API Response:', completion)
+      console.log('data.choices[0]', completion.choices[0].message.content)
+      // console.log('data.choices[0]', completion.choices[0].message.content)
       res.status(200).json({ recipe: completion.choices[0].message.content });
     } catch (error) {
       console.error(`Error generating recipe: ${error.message}`);
