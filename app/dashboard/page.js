@@ -8,7 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useRouter } from 'next/navigation';
 import InventList from './InventList';
 import AlertMsg from './AlertMsg';
-import { userAuth } from '../AuthContext';
+import { useAuth } from '../AuthContext';
 
 
 const style = {
@@ -38,7 +38,7 @@ export default function Home() {
     const [recipesError, setRecipesError] = useState(null);
     const [recipeOpen, setRecipeOpen] = useState(false);
     const { push } = useRouter();
-    const { user, loading } = userAuth();
+    const { user, loading } = useAuth();
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);

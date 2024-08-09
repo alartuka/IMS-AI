@@ -3,12 +3,12 @@
 import { AppBar, Box, Button, Container, Stack, Toolbar, Typography } from '@mui/material'
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
-import { userAuth } from './AuthContext';
+import { useAuth } from './AuthContext';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
-    const { user, loading, logOut } = userAuth();
+    const { user, loading, logOut } = useAuth();
     const { push } = useRouter();
 
     const handleSignOut = async () => {
