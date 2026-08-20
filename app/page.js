@@ -33,7 +33,7 @@ export default function Landing() {
         <Button variant="outlined" onClick={handleLogin}>Login</Button>
       </Stack>
       <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} width="80vw" p= {4} mb={'15px'}>
-        <Typography variant="p" color='#1d245c' component="p">&copy; {new Date().getFullYear()} Tuka Alsharief. All rights reserved.</Typography>
+        <Typography variant="p" color='#1d245c' component="p">&copy; {new Date().getFullYear()} Tuka A. All rights reserved.</Typography>
       </Box>
 
     </Box>
